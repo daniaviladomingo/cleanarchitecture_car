@@ -1,9 +1,9 @@
 package dani.cleanarchitecture.data.api
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import dani.cleanarchitecture.data.api.model.CredentialsApi
-import dani.cleanarchitecture.data.api.model.QueryApi
-import dani.cleanarchitecture.data.api.model.UpdateApi
+import dani.cleanarchitecture.data.api.model.ResponseCredentialsApi
+import dani.cleanarchitecture.data.api.model.ResponseQueryApi
+import dani.cleanarchitecture.data.api.model.ResponseUpdateApi
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,27 +17,27 @@ object RestApi {
         @FormUrlEncoded
         @GET("v{version}/login.php")
         fun login(@Path("version") version: Int,
-                  @Field("user") user: String) : Single<QueryApi<CredentialsApi>>
+                  @Field("user") user: String) : Single<ResponseQueryApi<ResponseCredentialsApi>>
 
         @FormUrlEncoded
         @POST("v{version}/cars_user.php")
         fun getCarsUser(@Path("version") version: Int,
                         @Field("id_user") idUSer: Int,
-                        @Field("password") password: String) : Single<QueryApi<CredentialsApi>>
+                        @Field("password") password: String) : Single<ResponseQueryApi<ResponseCredentialsApi>>
 
         @FormUrlEncoded
         @POST("v{version}/add_car_user.php")
         fun addCarUser(@Path("version") version: Int,
                        @Field("id_user") idUSer: Int,
                        @Field("password") password: Int,
-                       @Field("id_car") idCard: Int) : Single<UpdateApi>
+                       @Field("id_car") idCard: Int) : Single<ResponseUpdateApi>
 
         @FormUrlEncoded
         @POST("v{version}/delete_car_user.php")
         fun deleteCarUser(@Path("version") version: Int,
                        @Field("id_user") idUSer: Int,
                        @Field("password") password: Int,
-                       @Field("id_car") idCard: Int) : Single<UpdateApi>
+                       @Field("id_car") idCard: Int) : Single<ResponseUpdateApi>
     }
 
     private val retrofit = Retrofit.Builder().baseUrl(URL_BASE_API_CARS).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).build()
