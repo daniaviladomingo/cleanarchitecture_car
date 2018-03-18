@@ -1,24 +1,14 @@
-package dani.cleanarchitecture.data
+package dani.cleanarchitecture.data.api
 
-import dani.cleanarchitecture.data.api.IApi
-import dani.cleanarchitecture.data.preference.IPreference
+import dani.cleanarchitecture.data.api.definition.Retrofit
 import dani.cleanarchitecture.domain.model.AddDeleteCar
 import dani.cleanarchitecture.domain.model.Car
 import dani.cleanarchitecture.domain.model.Credentials
-import dani.cleanarchitecture.domain.repository.IRepository
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class RepositoryImp(private val preference: IPreference, private val api: IApi): IRepository {
-
-    override fun login(user: String): Single<Credentials> {
-    }
-
-    override fun saveCredentials(credentials: Credentials): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getCredentials(): Single<Credentials> {
+class ApiImp(private val restApi: Retrofit.RestApi): IApi {
+    override fun login(idUser: String): Single<Credentials> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

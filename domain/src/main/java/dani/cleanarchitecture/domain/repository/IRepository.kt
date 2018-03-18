@@ -6,12 +6,12 @@ import dani.cleanarchitecture.domain.model.Credentials
 import io.reactivex.Completable
 import io.reactivex.Single
 
-interface Repository {
+interface IRepository {
     fun login(user: String) : Single<Credentials>
     fun saveCredentials(credentials: Credentials) : Completable
     fun getCredentials() : Single<Credentials>
-    fun getUserCars(credentials: Credentials) : Single<List<Car>>
+    fun getCarsUser(credentials: Credentials) : Single<List<Car>>
     fun getCars() : Single<List<Car>>
-    fun addUserCar(addCar: AddDeleteCar) : Completable
-    fun deleteUserCar(removeCar: AddDeleteCar) : Completable
+    fun addCarUser(addCar: AddDeleteCar) : Completable
+    fun deleteCarUser(removeCar: AddDeleteCar) : Completable
 }

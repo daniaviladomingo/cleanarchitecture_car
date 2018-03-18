@@ -2,7 +2,7 @@ package dani.cleanarchitecture.domain.interactor.type;
 
 import io.reactivex.Completable;
 
-public interface CompletableUseCase {
+public interface ICompletableUseCaseWithParameter<P> {
 
-    Completable execute();
+    Completable execute(P parameter);
 }
