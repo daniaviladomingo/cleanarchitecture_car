@@ -32,9 +32,13 @@ dependencies {
     compile project(':domain')
 
     // Retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
     compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+    // Room (use 1.1.0-alpha2 for latest alpha)
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
 }
 
 repositories {
