@@ -8,6 +8,7 @@ import io.reactivex.Single
 
 interface Repository {
     fun login(user: String) : Single<Credentials>
+    fun saveCredentials(credentials: Credentials) : Completable
     fun getCredentials() : Single<Credentials>
     fun getUserCars(credentials: Credentials) : Single<List<Car>>
     fun getCars() : Single<List<Car>>
