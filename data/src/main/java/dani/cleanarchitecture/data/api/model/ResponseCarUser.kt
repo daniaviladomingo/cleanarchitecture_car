@@ -1,3 +1,8 @@
 package dani.cleanarchitecture.data.api.model
 
-class ResponseCarUser(val idBrand: Int, val model: String)
+import com.google.gson.annotations.SerializedName
+
+class ResponseCarUser(@SerializedName("id_user")
+                      val idUser: Int,
+                      val brand: String,
+                      val model: String)
